@@ -1,13 +1,9 @@
-sudo ln -sf /home/box/web/etc/nginx.conf /etc/nginx/sites-enabled/test.conf
 
-sudo rm -rf /etc/nginx/sites-enabled/default
 
-sudo /etc/init.d/nginx restart
+#Запуск gunicorn
+#sudo gunicorn -b 0.0.0.0:8080 hello:app
 
-Запуск gunicorn
-sudo gunicorn -b 0.0.0.0:8080 hello:app
-
-Для обновления до версии Django2.1 использую следующие команды:
+#Для обновления до версии Django2.1 использую следующие команды:
 
 sudo apt-get update
 
@@ -24,3 +20,10 @@ sudo pip3 install --upgrade pip
 sudo pip3 install --upgrade django==2.1
 
 sudo pip3 install --upgrade gunicorn
+
+
+sudo ln -sf /home/box/web/etc/nginx.conf /etc/nginx/sites-enabled/test.conf
+
+sudo rm -rf /etc/nginx/sites-enabled/default
+
+sudo /etc/init.d/nginx restart
