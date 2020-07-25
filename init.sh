@@ -51,5 +51,6 @@ source web_study/bin/activate
 pip install gunicorn django==2.1 
 
 gunicorn --bind 0.0.0.0:8080 hello:wsgi_application &
+cd ask
 gunicorn --bind 0.0.0.0:8000 ask.wsgi &
 
