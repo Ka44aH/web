@@ -35,23 +35,3 @@ urlpatterns = [
     path('new/', include('qa.urls')),                                       
 
 ]        
-
-
-  #  url(r'
-
-#/login/
-
-#/signup/
-
-#/question/<123>/    # вместо <123> - произвольный ID
-
-#/ask/
-
-#/popular/
-
-#/new/
-
-
-
-
-]
