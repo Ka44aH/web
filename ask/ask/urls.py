@@ -29,7 +29,9 @@ urlpatterns = [
 
     path('question/<int:pk>', include('qa.urls')),                    
 
-    path('ask/', include('qa.urls')),                                   
+    path('ask/', include('qa.urls')),        
+    
+    path('popular/', include('qa.urls')),
 
     path('new/', include('qa.urls')),                                       
 
