@@ -22,17 +22,17 @@ from . import views
 
 urlpatterns = [                                                                 
 
-    path('', views.test, name='qa_list'),                                       
+    path('', include('qa.urls')),                                       
 
-    path('login/', views.test, name='login'),                                   
+    path('login/', include('qa.urls')),                                   
 
-    path('signup/', views.test, name='signup'),                                 
+    path('signup/', include('qa.urls')),                                 
 
-    path('question/<int:pk>/', views.test, name='question'),                    
+    path('question/<int:pk>', include('qa.urls')),                    
 
-    path('ask/', views.test, name='popular'),                                   
+    path('ask/', include('qa.urls')),                                   
 
-    path('new/', views.test, name='new'),                                       
+    path('new/', include('qa.urls')),                                       
 
 ]        
 
