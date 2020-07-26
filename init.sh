@@ -17,10 +17,11 @@ sudo ln -s /usr/bin/python3.5 /usr/bin/python3
 
 sudo pip3 install --upgrade pip
 
-sudo pip3 install --upgrade django==2.1
+sudo pip3 install --upgrade django==2.0
 
 sudo pip3 install --upgrade gunicorn
 
+sudo python3 -m pip install mysqlclient
 
 sudo ln -sf /home/box/web/etc/nginx.conf /etc/nginx/sites-enabled/test.conf
 
@@ -48,9 +49,21 @@ virtualenv -p "$PYTHON_PATH" web_study 2> /dev/null
 echo $VIRTUAL_ENV
 source web_study/bin/activate
 
-pip install gunicorn django==2.1 
+pip install gunicorn django==2.0
 
 gunicorn --bind 0.0.0.0:8080 hello:wsgi_application &
 cd ask
 gunicorn --bind 0.0.0.0:8000 ask.wsgi &
 
+echo 'Запускаю MySQL'
+sudo /etc/init.d/mysql start
+
+echo 'Создаю Базу данных'
+mysql -uroot -e "create database stepic_web;"
+mysql -uroot -e "grant all privileges on stepic_web.* to 'box'@'localhost' with grant option;"
+
+
+#python manage.py makemigrations qa
+
+
+#python manage.py migrate qa
